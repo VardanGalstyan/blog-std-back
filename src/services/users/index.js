@@ -79,7 +79,12 @@ userRouter.get('/blogs/:articleId', async (req, res, next) => {
         const { articleId } = req.params
         const blog = await BlogsModel.findById(articleId)
             .populate('author')
-            .populate('comments')
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'author'
+                }
+            })
         if (blog) {
             res.json(blog)
         } else {
