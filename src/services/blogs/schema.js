@@ -9,7 +9,7 @@ const ArticleSchema = new Schema(
         main_text: { type: String, required: false },
         author: { type: Schema.Types.ObjectId, ref: 'User' },
         main_text: { type: String, required: false },
-        category: [String],
+        category: { type: String, required: false },
         comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     },
     { timestamps: true }
