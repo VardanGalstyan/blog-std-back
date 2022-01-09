@@ -150,7 +150,7 @@ userRouter.get('/comments/me', JWTAuthUserMiddleWear, async (req, res, next) => 
     }
 })
 
-userRouter.put('./comments/:commentId', JWTAuthUserMiddleWear, async (req, res, next) => {
+userRouter.put('/comments/:commentId', JWTAuthUserMiddleWear, async (req, res, next) => {
     try {
         const { commentId } = req.params
         const updatedComment = await CommentModel.findByIdAndUpdate(commentId, req.body,
